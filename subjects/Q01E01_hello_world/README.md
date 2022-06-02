@@ -1,6 +1,6 @@
 # Hello World !
 
-Welcome to the python coding challenge ! After thos four quests, you'll be an expert of this language ;) 
+Welcome to the python coding challenge ! After those four quests, you'll be an expert of this language ;) 
 
 ## Setup
 
@@ -38,3 +38,7 @@ Run your test file with the following command:
 ```shell
 python3 test.py
 ```
+
+## Notions
+
+* [Be carefull to indentation!](https://www.w3schools.com/python/gloss_python_indentation.asp)
