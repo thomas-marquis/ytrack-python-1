@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -7,7 +7,7 @@ cd /jail
 mkdir run
 mkdir run/tests
 
-cp -rf ./student ./run
+cp -rf ./student/* ./run
 rm -rf ./run/tests
 
 cd run
