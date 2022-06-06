@@ -1,5 +1,5 @@
-import main
+import hello_world
 
 
 def test_should_say_hello_world():
-    assert main.say_hello_world() == 'Hello World!'
+    assert hello_world.say_hello_world() == 'Hello World!'
