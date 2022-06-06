@@ -15,10 +15,11 @@ To write your code, you may use yout favourite IDE. If you doesn't have one, i r
 
 ## Instructions
 
-Create a file `main.py` and write inside a function `say_hello_world` that return the string "Hello World!".
+Create a file `hello_world.py` and write inside a function `say_hello_world` that return the string `"Hello World!"`.
 
 ```python
 def say_hello_world():
+    # this is a function,
     # write your code here
 ```
 
@@ -27,7 +28,7 @@ def say_hello_world():
 Here is a possible code to test your function. Put it in an other file (ex: `test.py`):
 
 ```python
-from main import say_hello_world
+from hello_world import say_hello_world
 
 if __name__ == '__main__':
     print(say_hello_world())
@@ -36,9 +37,10 @@ if __name__ == '__main__':
 Run your test file with the following command:
 
 ```shell
-python3 test.py
+$ python3 test.py
+Hello World!
 ```
 
 ## Notions
 
-* [Be carefull to indentation!](https://www.w3schools.com/python/gloss_python_indentation.asp)
+* [Be careful to indentation!](https://www.w3schools.com/python/gloss_python_indentation.asp)
