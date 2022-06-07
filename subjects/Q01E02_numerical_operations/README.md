@@ -7,13 +7,33 @@ Create a file `numerical_operations.py` and implement following functions:
 * `add(a, b)`
 * `subtract(a, b)`
 * `multiply(a, b)`
-* `modulo(a, b)`
 * `power(a, b)`
 * `square(a)`
 
+We assume that `a` and `b` are numbers (`int` or `float`).
+
+## [Optional] Use a virtual environnement to run python code locally
+
+Virtual environments
+
+[Learn more here about virtual environments](https://openclassrooms.com/fr/courses/6951236-mettez-en-place-votre-environnement-python/7013854-decouvrez-les-environnements-virtuels).
+
+```bash
+# create a new virtual environment for python 3.10
+$ conda create --name my_env python=3.10
+
+# activate your new environment
+$ conda activate my_env
+
+# From now, all python command use this python version in this terminal
+$ python --version
+Python 3.10.4
+```
+
+
 ## Usage
 
-Here is a possible `test.py` to test your function:
+Here is a possible `test.py` to test your functions:
 
 ```python
 import numerical_operations
@@ -22,7 +42,6 @@ if __name__ == '__main__':
     print(numerical_operations.add(2, 2))
     print(numerical_operations.subtract(10, 5))
     print(numerical_operations.multiply(3, 4))
-    print(numerical_operations.modulo(10, 3))
     print(numerical_operations.power(3, 3))
     print(numerical_operations.square(3))
 
@@ -33,7 +52,6 @@ $ python test.py
 4
 5
 12
-1
 27
 9
 ```
@@ -41,5 +59,5 @@ $ python test.py
 
 ## Notions
 
-* [Functions](#)
-* [Operations](#)
+* [Functions](https://openclassrooms.com/fr/courses/7168871-apprenez-les-bases-du-langage-python/7296396-regroupez-des-taches-en-utilisant-des-fonctions)
+* [Operations](https://www.geeksforgeeks.org/python-arithmetic-operators/)
