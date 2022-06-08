@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Create a file `numerical_operations.py` (you can reuse the existing one) and implement following functions:
+Create a file `numerical_operations.py` (you can reuse the existing one) and implements following functions:
 
 * `modulo(a, b)`
 * `divide(a, b)`

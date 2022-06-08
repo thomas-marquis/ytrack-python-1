@@ -14,9 +14,9 @@ We assume that `a` and `b` are numbers (`int` or `float`).
 
 ## [Optional] Use a virtual environnement to run python code locally
 
-Virtual environments
+Virtual environments can help you to run your code locally.
 
-[Learn more here about virtual environments](https://openclassrooms.com/fr/courses/6951236-mettez-en-place-votre-environnement-python/7013854-decouvrez-les-environnements-virtuels).
+[Learn all you need about virtual environments](https://openclassrooms.com/fr/courses/6951236-mettez-en-place-votre-environnement-python/7013854-decouvrez-les-environnements-virtuels).
 
 ```bash
 # create a new virtual environment for python 3.10
