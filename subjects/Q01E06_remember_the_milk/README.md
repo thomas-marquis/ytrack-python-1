@@ -12,6 +12,8 @@ This function input is a list of string, like this:
 
 If the string `'milk'` is not in the list, it should add it and return the list. Then, simply return the original list.
 
+If the input list is empty, the returned list should be also empty.
+
 
 ## Usage
 

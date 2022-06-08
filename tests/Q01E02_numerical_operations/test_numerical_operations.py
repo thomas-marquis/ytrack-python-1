@@ -40,17 +40,6 @@ def test_multiply(a, b, expected):
 
 
 @pytest.mark.parametrize('a, b, expected', [
-    (10, 3, 1),
-    (-10, 3, 2),
-    (10, .3, .1),
-    (-10, .3, .2),
-])
-def test_modulo(a, b, expected):
-    res = round(numerical_operations.modulo(a, b), 2)
-    assert res == expected, f'{a}%{b} not equal to {expected}'
-
-
-@pytest.mark.parametrize('a, b, expected', [
     (3, 3, 27),
     (0, 0, 1),
     (-10, 3, -1000),

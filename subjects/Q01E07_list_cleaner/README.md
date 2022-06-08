@@ -13,10 +13,12 @@ This function input is a list of string, like this:
 For each list item, your function `clean_list` should:
 
 * remove all spaces before and after (but not between words)
-* uppercase first letter (only)
+* capitalize the first letter (first letter only, other ones should be to lowercase)
 * add it index number before and a separator `'x/ '`
+* and don't forget the milk !!!! (add it at the end of the list if missing)
+* an empty list as input = an empty list as output
 
-For example :
+Example :
 
 ```python
 clean_list(['tomatoes', 'pastas', 'milk', 'salt']) == ['1/ Tomatoes', '2/ Pastas', '3/ Milk', '4/ Salt']
@@ -31,13 +33,14 @@ Here is a possible `test.py` to test your functions:
 import shopping
 
 if __name__ == '__main__':
-    shopping_list = ['tomatoes', 'pastas', 'milk', 'salt']
-    print(shopping.clean_list(shopping_list))
+    print(shopping.clean_list(['tomatoes', 'pastas', 'milk', 'salt']))
+    print(shopping.clean_list(['tomatoes', 'pastas', 'salt']))
 ```
 
 ```bash
 $ python test.py
 ['1/ Tomatoes', '2/ Pastas', '3/ Milk', '4/ Salt']
+['1/ Tomatoes', '2/ Pastas', '3/ Salt', '4/ Milk']
 ```
 
 ## Notions
