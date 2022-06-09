@@ -33,5 +33,8 @@ $ python test.py
 ## Notions
 
 * [string methods](https://www.w3schools.com/python/python_ref_string.asp)
+* [replace](https://www.w3schools.com/python/ref_string_replace.asp)
+* [split](https://www.w3schools.com/python/ref_string_split.asp)
+* import "string" module and [get all string punctuations](https://docs.python.org/3/library/string.html#string.punctuation)
 * [Tokenization in text analysis](https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization)
 * [Word segmentation](https://en.wikipedia.org/wiki/Text_segmentation#Word_segmentation)

@@ -15,8 +15,8 @@ For each list item, your function `clean_list` should:
 * remove all spaces before and after (but not between words)
 * capitalize the first letter (first letter only, other ones should be to lowercase)
 * add it index number before and a separator `'x/ '`
-* and don't forget the milk !!!! (add it at the end of the list if missing)
 * an empty list as input = an empty list as output
+* and don't forget the milk !!!! (add it at the end of the list if missing)
 
 Example :
 
