@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Create a file `calendar.py` with 2 functions:
+Create a file `custom_calendar.py` with 2 functions:
 
 * `day_from_number(day_number)`
 * `day_to_number(day)`
