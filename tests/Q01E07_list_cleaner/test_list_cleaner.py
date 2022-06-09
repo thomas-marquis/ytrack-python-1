@@ -27,13 +27,8 @@ def test_clean_list(case: str, input: list[str], expected: list[str]):
     (['milke'], ['1/ Milke', '2/ Milk']),
 ])
 def test_clean_list_should_remember_the_milk(input_list: list[str], expected: list[str]):
-    res = shopping.remember_the_milk(input_list)
-    
-    is_you_remember_the_milk = 'milk' in res
-    is_all_items_present = sorted(res) == sorted(expected)
-    
-    assert is_you_remember_the_milk, 'You forgot the milk !'
-    assert is_all_items_present, 'You remember the milk, be forgot another element...'
+    res = shopping.clean_list(input_list)
+    assert res == expected
 
 
 def test_clean_list_should_handle_empty():

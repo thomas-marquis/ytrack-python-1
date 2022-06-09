@@ -41,5 +41,6 @@ Je ne jetterai plus de cacahuètes sur le professeur. Je ne jetterai plus de cac
 ## Notions
 
 * [strip](https://www.w3schools.com/python/ref_string_strip.asp)
+* [rstrip](https://www.w3schools.com/python/ref_string_rstrip.asp)
 * [endwith](https://www.w3schools.com/python/ref_string_endswith.asp)
 * [string multiplication](https://www.geeksforgeeks.org/create-multiple-copies-of-a-string-in-python-by-using-multiplication-operator/)

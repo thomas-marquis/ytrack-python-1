@@ -7,7 +7,7 @@ def remember_the_milk(shopping_list: list[str]) -> list[str]:
 
 
 def clean_list(shopping_list: list[str]) -> list[str]:
-    shopping_list = remember_the_milk(shopping_list)
+    # shopping_list = remember_the_milk(shopping_list)
 
     if not shopping_list:
         return shopping_list

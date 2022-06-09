@@ -58,5 +58,5 @@ def test_create_person_full_nominal_full_kw():
     
 
 def test_create_person_full_nominal_missing():
-    res = flex_function.create_person('Kevin', 'Boulin', 34)
+    res = flex_function.create_person('Kevin', 'Boulin', 34, 'male')
     assert res == nominal_expected

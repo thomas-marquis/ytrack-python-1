@@ -6,7 +6,7 @@ import punishment
 @pytest.mark.parametrize('first_part, second_part, nb_lines, expected', [
     (
         'Je ne jetterai plus de cacahuètes', 
-        'sur le professeur.', 
+        'sur le professeur', 
         3,
         'Je ne jetterai plus de cacahuètes sur le professeur. '
         'Je ne jetterai plus de cacahuètes sur le professeur. '
@@ -14,7 +14,7 @@ import punishment
     ),
     (
         'Je ne jetterai plus de cacahuètes', 
-        'sur le professeur.      ', 
+        'sur le professeur      ', 
         3,
         'Je ne jetterai plus de cacahuètes sur le professeur. '
         'Je ne jetterai plus de cacahuètes sur le professeur. '
@@ -30,7 +30,7 @@ import punishment
     ),
     (
         'Je ne jetterai plus de cacahuètes', 
-        'sur le professeur.', 
+        'sur le professeur', 
         0,
         '',
     ),
