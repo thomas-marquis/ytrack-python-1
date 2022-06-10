@@ -12,7 +12,7 @@ We assume that `a` and `b` are numbers (`int` or `float`).
 
 **Caution**
 
-Be careful: a division by zero risks destroying the universe! You must should think about it! In this case, your functions must return 0.
+Be careful: a division by zero risks destroying the universe! You should think about it! In this case, your functions should **return `0`**.
 
 ## Usage
 
@@ -24,6 +24,7 @@ import numerical_operations
 if __name__ == '__main__':
     print(numerical_operations.modulo(10, 3))
     print(numerical_operations.divide(10, 3))
+    print(numerical_operations.divide(10, 0))
     print(numerical_operations.integer_division(10, 3))
 ```
 
@@ -31,6 +32,7 @@ if __name__ == '__main__':
 $ python test.py
 1
 3.3333333333333335
+0
 3
 ```
 

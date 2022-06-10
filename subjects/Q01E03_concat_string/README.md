@@ -1,8 +1,8 @@
-# Concat string
+# Concatenate string
 
 ## Instructions
 
-Create a file `concat_string.py` and create a function `concat` that take 2 string in parameters and concatenate them to one separated with a comma and space: `, `
+Create a file `concat_string.py` and create a function `concat` that expect 2 strings as parameters and concatenate them to one separated with: `, ` (a comma and space).
 
 ## Usage
 

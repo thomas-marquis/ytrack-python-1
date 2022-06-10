@@ -10,9 +10,9 @@ This function input is a list of string, like this:
 ['tomatoes', 'pastas', 'milk', 'salt']
 ```
 
-If the string `'milk'` is not in the list, it should add it and return the list. Then, simply return the original list.
+If the string `'milk'` is not in the list, it should be added. The function return the updated list. If the milk is in the list, simply return it.
 
-If the input list is empty, the returned list should be also empty.
+If the input list is empty, the returned list should be also empty (don't add the milk in that case).
 
 
 ## Usage

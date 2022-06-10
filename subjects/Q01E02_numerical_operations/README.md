@@ -18,6 +18,12 @@ Virtual environments can help you to run your code locally.
 
 [Learn all you need about virtual environments](https://openclassrooms.com/fr/courses/6951236-mettez-en-place-votre-environnement-python/7013854-decouvrez-les-environnements-virtuels).
 
+Here, we setup a virtual environment with miniconda.
+
+First, [download and install miniconda](https://docs.conda.io/en/latest/miniconda.html).
+
+Then, use those commands to create a new environment:
+
 ```bash
 # create a new virtual environment for python 3.10
 $ conda create --name my_env python=3.10
@@ -29,6 +35,8 @@ $ conda activate my_env
 $ python --version
 Python 3.10.4
 ```
+
+I advise you to create one virtual environment per python project. Later, we can install external packages on our environment.
 
 
 ## Usage

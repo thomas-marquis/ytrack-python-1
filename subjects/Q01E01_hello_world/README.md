@@ -38,7 +38,7 @@ Run your test file with the following command:
 
 ```shell
 $ python3 test.py
-Hello World!
+Hello World !
 ```
 
 ## Notions

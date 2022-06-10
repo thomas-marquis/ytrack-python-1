@@ -33,7 +33,7 @@ Here is a possible `test.py` to test your functions:
 import shopping
 
 if __name__ == '__main__':
-    print(shopping.clean_list(['tomatoes', 'pastas', 'milk', 'salt']))
+    print(shopping.clean_list(['tomatoes', 'pastas', 'milk', '  salt']))
     print(shopping.clean_list(['tomatoes', 'pastas', 'salt']))
 ```
 
@@ -47,3 +47,4 @@ $ python test.py
 
 * [string methods](https://www.w3schools.com/python/python_ref_string.asp)
 * [enumerate](https://realpython.com/python-enumerate/)
+* [for loops](https://openclassrooms.com/fr/courses/7168871-apprenez-les-bases-du-langage-python/7296286-repetez-des-taches-facilement-a-l-aide-de-boucles)

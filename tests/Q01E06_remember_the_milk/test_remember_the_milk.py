@@ -4,10 +4,26 @@ import shopping
 
 
 @pytest.mark.parametrize('input_list, expected', [
-    (['tomatoes', 'pastas', 'milk', 'salt'], ['tomatoes', 'pastas', 'milk', 'salt']),
-    (['tomatoes', 'pastas', 'salt'], ['tomatoes', 'pastas', 'milk', 'salt']),
-    (['milk'], ['milk']),
-    (['milke'], ['milke', 'milk']),
+    pytest.param(
+        ['tomatoes', 'pastas', 'milk', 'salt'], 
+        ['tomatoes', 'pastas', 'milk', 'salt'],
+        id='list with milk',
+    ),
+    pytest.param(
+        ['tomatoes', 'pastas', 'salt'], 
+        ['tomatoes', 'pastas', 'milk', 'salt'],
+        id='list without milk',
+    ),
+    pytest.param(
+        ['milk'], 
+        ['milk'],
+        id='only milk',
+    ),
+    pytest.param(
+        ['milke'],
+        ['milke', 'milk'],
+        id='list with milk but typo',
+    ),
 ])
 def test_remember_the_milk(input_list: list[str], expected: list[str]):
     res = shopping.remember_the_milk(input_list)

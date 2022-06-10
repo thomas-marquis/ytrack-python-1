@@ -2,8 +2,7 @@
 
 ## Instructions
 
-Python functions can be very flexible !
-
+Python functions can be very flexible ! You can pass them arguments many different ways.
 
 Create a file `flex_function.py` with function `create_person` that return a dictionary like this:
 
@@ -18,11 +17,10 @@ Create a file `flex_function.py` with function `create_person` that return a dic
 }
 ```
 
-The function should:
+This function should:
 
 * take first name and last name as required positional parameters
 * take age and gender as positional or keyword parameters
-* age and gender must have default values: age=34 and gender="male"
 * take size and job as keyword only parameters
 * size and job default values: size=1.83, job="taxidermist"
 

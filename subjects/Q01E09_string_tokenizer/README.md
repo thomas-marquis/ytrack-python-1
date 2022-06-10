@@ -9,9 +9,11 @@ Create a file `string_processing.py` with a function `tokenize(sentence)`.
 
 Given a sentence, this function should :
 
-* separate each word ("n'est" => 2 words, "c'est-à-dire" => 4 words)
-* put words to lower case
 * remove all punctuation sign and special character. Given token must be only letters or numbers
+* separate each word. "n'est" => 2 words ("n", "est"), "c'est-à-dire" => 4 words
+* put words to lower case
+
+Return a list of words.
 
 ## Usage
 

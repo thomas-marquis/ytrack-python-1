@@ -2,7 +2,7 @@
 
 ## Instructions
 
-did you ever have to write a punishment at school ? Hundreds lines to copy is boring ! Fortunately, it is so easy with python !
+Did you ever have to write a punishment at school ? Hundreds lines to copy is boring ! Fortunately, it is so easy with python !
 
 Create a file `punishment.py` and create a function `do_punishment` with the following signature:
 
@@ -11,11 +11,12 @@ def do_punishment(first_part, second_part, nb_lines):
     pass
 ```
 
-This function must concatenate first and second parts (with a space between) and repeat this sentence `nb_lines` times.
+This function must concatenate first and second parts (with a space between) and repeat this sentence `nb_lines` times in a single long string.
 
-**Caution**
+**Cautions**
 
-Each sentence MUST ending with dot `.` and MUST be separated with a space (see example bellow).
+* Each sentence must ending with dot `.` and must be separated with a space (see example bellow).
+* You should remove every space before or after sentences parts. Ex: `   a sentence bla bla  ` => `a sentence bla bla`. See notions bellow
 
 
 ## Usage
