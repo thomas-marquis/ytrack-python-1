@@ -4,11 +4,11 @@
 
 Create a file `recipes.py` with a function `create_recipe` that take 3 parameters:
 
-* name: the recipe name as string
-* persons: number of persons as integer
-* ingredients: list of ingredients (list of strings)
+* _name_: the recipe name as string
+* _persons_: number of persons as integer
+* _ingredients_: list of ingredients (list of strings)
 
-This function check if recipe data are correct and simply return a dictionary.
+This function check if recipe data are correct and simply return a dictionary:
 
 ```python
 {
@@ -18,10 +18,10 @@ This function check if recipe data are correct and simply return a dictionary.
 }
 ```
 
-The function should raise a `ValueError` with specific message in those cases:
+The function should `raise` a `ValueError` with specific message according those cases:
 
 * if `title` has more than 150 character length. Error message: `"Title is tool long"`
-* if `persons` is null or greater than 50. Error message: `"Invalid person number"`
+* if `persons` is null or greater than 50. Error message: `"Invalid persons number"`
 * if `ingredients` list is empty. Error message: `"This recipe has no ingredients"`
 
 ## Usage

@@ -3,18 +3,35 @@ import re
 
 import recipes
 
+ingredients = ['Pate à pizza',
+               'Frourne d\'Ambert',
+               'Comté',
+               'Emental',
+               'Mozzarella']
 
-def test_create_recipe_should_raise_value_error():
-    ingredients = ['Pate à pizza', 
-                   'Frourne d\'Ambert', 
-                   'Comté',
-                   'Emental',
-                   'Mozzarella']
-    res = recipes.create_recipe('pizza 4 fromages', 1, ingredients)
-    expected = {'title': 'pizza 4 fromages', 'persons': 1, 'ingredients': ingredients}
+
+def test_create_recipe():
+    title = 'x' * 149
+    res = recipes.create_recipe(title, 1, ingredients)
+    expected = {'title': title, 'persons': 49, 'ingredients': ingredients}
     assert res == expected
 
 
-def test_create_recipe_should_raise_value_error():
+def test_create_recipe_should_raise_value_error_when_empty_ingredients():
     with pytest.raises(ValueError, match=re.compile('this recipe has no ingredients', flags=re.I)):
         recipes.create_recipe('tacos à la grec', 12, [])
+
+
+def test_create_recipe_should_raise_value_error_when_title_too_long():
+    with pytest.raises(ValueError, match=re.compile('title is tool long', flags=re.I)):
+        recipes.create_recipe('x'*151, 12, ingredients)
+
+
+def test_create_recipe_should_raise_value_error_when_too_many_persons():
+    with pytest.raises(ValueError, match=re.compile('invalid persons number', flags=re.I)):
+        recipes.create_recipe('tacos à la grec', 51, ingredients)
+
+
+def test_create_recipe_should_raise_value_error_when_zero_persons():
+    with pytest.raises(ValueError, match=re.compile('invalid persons number', flags=re.I)):
+        recipes.create_recipe('tacos à la grec', 0, ingredients)
