@@ -6,12 +6,14 @@ import filter_recipes
 import sort_list
 import datetime_utils
 
+recipes_file = 'recipes_data.json'
+
 
 def main(args):
     max_persons = args.max_persons
     start_date = datetime_utils.parse_time(args.start)
     
-    recipes = read_recipes.get_recipes()
+    recipes = read_recipes.get_recipes(recipes_file)
     recipes = sort_list.sort_recipes(recipes, by='title')
     recipes = filter_recipes.filter_recipes(recipes, max_persons=max_persons)
     

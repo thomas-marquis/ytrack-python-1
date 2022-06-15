@@ -1,7 +1,7 @@
 import json
 
 
-def get_recipes() -> list[dict]:
-    with open('recipes_data.json', 'r') as f:
-        content = json.dump(f)
+def get_recipes(file_name: str) -> list[dict]:
+    with open(file_name, 'r', encoding='utf-8') as f:
+        content = json.load(f)
     return content
