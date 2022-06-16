@@ -10,14 +10,17 @@ Saturday 18 June 2022: Rochers aux coco
 Sunday 19 June 2022: Spaghetti Napolitaine révisé''')
 
 
-@pytest.mark.parametrize('command, expected', [
-    ('python cli.py --start 15/06/2022 --max-persons 5', expected_case_1),
+@pytest.mark.parametrize('command, expected, expected_code', [
+    ('python cli.py --start 15/06/2022 --max-persons 5', expected_case_1, 0),
+    ('python cli.py -s 15/06/2022 -p 5', expected_case_1, 0),
 ])
-def test_cli(command: str, expected: str):
+def test_cli(command: str, expected: str, expected_code: int):
     process = subprocess.Popen(command)
+    
     process.wait()
     with open('menu.txt', 'r') as f:
         res = f.read().strip()
+    actual_code = process.returncode
 
-    assert process.returncode == 0, 'your program terminated with error'
+    assert actual_code == expected_code, f'your program terminated with exit code {actual_code}'
     assert res == expected
