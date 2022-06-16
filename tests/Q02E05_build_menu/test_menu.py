@@ -4,6 +4,19 @@ import pytest
 
 import menu
 
+recipes = [
+    {'title': 'Flanboisier aux pêches'},
+    {'title': 'Spaghetti Napolitaine révisé'},
+    {'title': 'Yaourts miel et fleur d\'oranger'},
+    {'title': 'clafouti aux cerises'},
+    {'title': 'Croissant de la mer'},
+    {'title': 'Galettes des rois'},
+    {'title': 'Rochers aux coco'},
+    {'title': 'Galette de légumes'},
+    {'title': 'Blésotto de poireaux-jambon au Cookéo'},
+    {'title': 'Wacky cake'},
+]
+
 
 @pytest.mark.parametrize('start_date, expected', [
     pytest.param(
@@ -56,5 +69,8 @@ import menu
     ),
 ])
 def test_build_menu(start_date: dt.date, expected: list[tuple[dt.date, str]]):
-    res = menu.build_menu(start_date)
-    assert res == expected
+    res = menu.build_menu(recipes, start_date)
+    assert res == expected, ("This function should return a list of tuple. Ex: "
+                             "[(dt.date(2022, 6, 1), 'Flanboisier aux pêches'),"
+                             "(dt.date(2022, 1, 2), 'Blésotto de poireaux-jambon au Cookéo')]. "
+                             "All dates must be consecutive.")

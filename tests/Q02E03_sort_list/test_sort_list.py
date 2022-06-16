@@ -35,9 +35,12 @@ import sort_list
 ])
 def test_sort_recipes(input_list: list[dict], by: str, expected: list[dict]):
     res = sort_list.sort_recipes(input_list, by)
-    assert res == expected
+    assert res == expected, f'The function should be able to sort recipes by {by}'
 
 
 def test_sort_recipes_should_raise_when_invalid_by():
-    with pytest.raises(ValueError):
-        sort_list.sort_recipes([{'title': 'choucroute royale', 'persons': 1}], by='invalid')
+    try:
+        with pytest.raises(ValueError):
+            sort_list.sort_recipes([{'title': 'choucroute royale', 'persons': 1}], by='invalid')
+    except KeyError:
+        pytest.fail('The function should check if "by" parameter has correct value')

@@ -1,9 +1,10 @@
-import os 
+import json
+
+import pytest
 
 import read_recipes
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-expected = [
+file_content = [
   {
     "title": "Flanboisier aux pêches",
     "ingredients": [
@@ -145,7 +146,17 @@ expected = [
 ]
 
 
-def test_get_recipes():
-    file_name = os.path.join(dir_path, 'recipes_data.json')
-    res = read_recipes.get_recipes(file_name)
-    assert res == expected
+def test_get_recipes(tmp_path):
+    file_path = tmp_path / 'recipes_data.json'
+    with open(file_path, 'w') as f:
+        json.dump(file_content, f)
+    expected = file_content
+    
+    res = read_recipes.get_recipes(file_path)
+    
+    assert res == expected, 'This function should return the file content as a list of dictionaries'
+
+
+def test_get_recipes_with_unexisting_file():
+    with pytest.raises(OSError):
+        read_recipes.get_recipes('invalid_file.json')
