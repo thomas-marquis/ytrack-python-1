@@ -33,7 +33,10 @@ Here is a possible `test.py` to test your functions:
 from menu import save_menu
 
 if __name__ == '__main__':
-    recipes = [{'title': 'bananes flambées', 'persons': 30}, {'title': 'avocat au thon', 'persons': 4}]
+    recipes = [
+        (dt.date(2022, 6, 1), 'bananes flambées'), 
+        (dt.date(2022, 6, 2), 'avocat au thon'),
+    ]
     save_menu(recipes)
 ```
 
