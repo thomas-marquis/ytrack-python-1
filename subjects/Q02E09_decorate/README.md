@@ -1,4 +1,4 @@
-# Sort a list
+# Function decorator
 
 ## Instructions
 
