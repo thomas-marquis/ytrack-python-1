@@ -3,7 +3,10 @@ __pycache__
 .vscode
 .idea
 DRAFT.md
+draft.ipynb 
+/launch.py
 
+# Q1
 /hello_world.py
 /numerical_operations.py
 /concat_string.py
@@ -12,3 +15,12 @@ DRAFT.md
 /custom_calendar.py
 /string_processing.py
 /flex_function.py
+
+#Q2
+/recipes.py
+/sort_list.py
+/datetime_utils.py
+/menu.py
+/filter_recipes.py
+/cli.py
+/read_recipes.py
