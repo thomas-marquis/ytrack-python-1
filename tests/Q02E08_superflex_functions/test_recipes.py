@@ -1,9 +1,31 @@
-import pytest
+import inspect
 import re
+
+import pytest
 
 import recipes
 
 ingredients = ['Pate à pizza', 'Frourne d\'Ambert', 'Comté', 'Emental', 'Mozzarella']
+
+
+def test_create_recipe_v2_should_has_ingredients_args():
+    params = inspect.signature(recipes.create_recipe_v2).parameters
+    ingredients_param = params.get('ingredients')
+    if not ingredients_param:
+        pytest.fail('The function should have ingredients parameter')
+    param_kind = ingredients_param.kind
+    expected_king = inspect._ParameterKind.VAR_POSITIONAL
+    assert param_kind == expected_king, 'ingredients parameter should use unpacking operator *'
+
+
+def test_create_recipe_v2_should_has_tags_kwargs():
+    params = inspect.signature(recipes.create_recipe_v2).parameters
+    tags_param = params.get('tags')
+    if not tags_param:
+        pytest.fail('The function should have ingredients parameter')
+    param_kind = tags_param.kind
+    expected_king = inspect._ParameterKind.VAR_KEYWORD
+    assert param_kind == expected_king, 'tags parameter should use unpacking operator **'
 
 
 def test_create_recipe_v2():
@@ -19,15 +41,24 @@ def test_create_recipe_v2_should_raise_value_error_when_empty_ingredients():
 
 
 def test_create_recipe_v2_should_raise_value_error_when_title_too_long():
-    with pytest.raises(ValueError, match=re.compile('^title is too long$', flags=re.I)):
-        recipes.create_recipe_v2('x'*151, 12, *ingredients)
+    try:
+        with pytest.raises(ValueError, match=re.compile('^title is too long$', flags=re.I)):
+            recipes.create_recipe_v2('x'*151, 12, *ingredients)
+    except TypeError:
+        pass
 
 
 def test_create_recipe_v2_should_raise_value_error_when_too_many_persons():
-    with pytest.raises(ValueError, match=re.compile('^invalid persons number$', flags=re.I)):
-        recipes.create_recipe_v2('tacos à la grec', 51, *ingredients)
+    try:
+        with pytest.raises(ValueError, match=re.compile('^invalid persons number$', flags=re.I)):
+            recipes.create_recipe_v2('tacos à la grec', 51, *ingredients)
+    except TypeError:
+        pass
 
 
 def test_create_recipe_v2_should_raise_value_error_when_zero_persons():
-    with pytest.raises(ValueError, match=re.compile('^invalid persons number$', flags=re.I)):
-        recipes.create_recipe_v2('tacos à la grec', 0, *ingredients)
+    try:
+        with pytest.raises(ValueError, match=re.compile('^invalid persons number$', flags=re.I)):
+            recipes.create_recipe_v2('tacos à la grec', 0, *ingredients)
+    except TypeError:
+        pass
