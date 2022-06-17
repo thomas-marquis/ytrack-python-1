@@ -26,6 +26,13 @@ Unlike previous `create_recipe` function, the ingredient list and tags should no
 create_recipe_v2('Tarte aux figues', 4, 'pâte feuilleté', 'figues', type='dessert', vegan=True)
 ```
 
+...or like this:
+
+```python
+create_recipe_v2('Raclette', 5, 'patates', 'fromage', 'jambon', vegan=False, healthy=False)
+```
+
+
 This function should perform same verifications as `create_recipe` (title not too long, not too many persons and not empty ingredient list)
 
 
@@ -37,7 +44,7 @@ Here is a possible `test.py` to test your functions:
 import recipes
 
 if __name__ == '__main__':
-    print(recipes.create_recipe_v2('Tarte aux figues', 4, 'pâte feuilleté', 'figues', type='dessert', vegan=True))
+    print(recipes.create_recipe_v2('Tarte aux figues', 4, 'pâte feuilleté', 'figues', moment='dessert', season='summer'))
 ```
 
 ```bash
@@ -46,7 +53,7 @@ $ python test.py
     'title': 'Tarte aux figues',
     'persons': 4,
     'ingredients': ['pâte feuilleté', 'figues'],
-    'tags': {'type': 'dessert', 'vegan': True},
+    'tags': {'moment': 'dessert', 'season': 'summer'},
 }
 ```
 

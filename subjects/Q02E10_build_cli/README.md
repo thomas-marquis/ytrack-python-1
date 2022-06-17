@@ -30,7 +30,7 @@ You can reuse most of the files and functions your wrote during this quest:
 Following commands are both equivalent:
 
 ```bash
-$ python cli.py --start-date 15/06/2022 --max-persons 6
+$ python cli.py --start 15/06/2022 --max-persons 6
 $ python cli.py -s 15/06/2022 -p 6
 ```
 
