@@ -2,7 +2,9 @@
 
 ## Instructions
 
-Create a file `read_recipes.py` and function `get_recipes(file_name)`. Create another file `recipes_data.json` and copy/paste on it following content:
+Create a file `read_recipes.py` and a function `get_recipes(file_name)`. 
+
+Create another file `recipes_data.json` and copy/paste on it the following content:
 
 ```json
 [
@@ -44,7 +46,13 @@ Create a file `read_recipes.py` and function `get_recipes(file_name)`. Create an
 ]
 ```
 
-You have to read the file `recipes_data.json` (stored in same directory as file `read_recipes.py`) and load his content in list of dictionaries.
+You have to read the file `recipes_data.json` and load his content in a list of dictionaries.
+
+Expected output format:
+
+```python
+[{...}, {...}, {...}]
+```
 
 **Be careful to encoding when you read a file ! ;)**
 

@@ -43,3 +43,5 @@ $ python test.py
 ## Notions
 
 * [built-in exceptions](https://www.w3schools.com/python/python_ref_exceptions.asp)
+* [String length](https://www.w3schools.com/python/gloss_python_string_length.asp)
+* [Dictionaries](https://openclassrooms.com/fr/courses/7168871-apprenez-les-bases-du-langage-python/7290721-enregistrez-des-donnees-complexes-avec-des-dictionnaires)

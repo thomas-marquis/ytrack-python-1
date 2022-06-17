@@ -32,6 +32,12 @@ import sort_list
         ],
         id='should sort ascending by persons',
     ),
+    pytest.param(
+        [],
+        'persons',
+        [],
+        id='should return empty list',
+    ),
 ])
 def test_sort_recipes(input_list: list[dict], by: str, expected: list[dict]):
     res = sort_list.sort_recipes(input_list, by)
