@@ -4,10 +4,10 @@
 
 Create or reuse file `recipes.py` and add a function `create_recipe_v2`. This function take 4 inputs:
 
-* `title`: the recipe title as a string
-* `persons`: the number of persons, as int
-* `ingredients`: the list of the ingredients
-* `tags`: some optional tags as key/value pairs
+* `title`: the recipe title as a **string**
+* `persons`: the number of persons, as **int**
+* `ingredients`: the **tuple** of the ingredients
+* `tags`: some optional tags as key/value **dictionary**
 
 It should return a dictionary:
 
@@ -15,7 +15,7 @@ It should return a dictionary:
 {
     'title': 'Tarte aux figues',
     'persons': 4,
-    'ingredients': ['pâte feuilleté', 'figues'],
+    'ingredients': ('pâte feuilleté', 'figues'),
     'tags': {'type': 'dessert', 'vegan': True},
 }
 ```
@@ -52,7 +52,7 @@ $ python test.py
 {
     'title': 'Tarte aux figues',
     'persons': 4,
-    'ingredients': ['pâte feuilleté', 'figues'],
+    'ingredients': ('pâte feuilleté', 'figues'),
     'tags': {'moment': 'dessert', 'season': 'summer'},
 }
 ```
