@@ -5,8 +5,6 @@ import pytest
 
 import recipes
 
-ingredients = ['Pate à pizza', 'Frourne d\'Ambert', 'Comté', 'Emental', 'Mozzarella']
-
 
 def test_create_recipe_v2_should_has_ingredients_args():
     params = inspect.signature(recipes.create_recipe_v2).parameters
@@ -30,8 +28,15 @@ def test_create_recipe_v2_should_has_tags_kwargs():
 
 def test_create_recipe_v2():
     title = 'x' * 149
-    res = recipes.create_recipe_v2(title, 49, *ingredients, regime='vegan')
-    expected = {'title': title, 'persons': 49, 'ingredients': tuple(ingredients), 'tags': {'regime': 'vegan'}}
+    res = recipes.create_recipe_v2(title, 49, 
+                                   'Pate à pizza', 'Frourne d\'Ambert', 'Comté', 'Emental', 'Mozzarella', 
+                                   regime='vegan')
+    expected = {
+        'title': title, 
+        'persons': 49, 
+        'ingredients': ('Pate à pizza', 'Frourne d\'Ambert', 'Comté', 'Emental', 'Mozzarella'), 
+        'tags': {'regime': 'vegan'},
+    }
     assert res == expected, 'This function should return a dictionary with 3 keys: title, persons and ingredients'
 
 
@@ -43,7 +48,8 @@ def test_create_recipe_v2_should_raise_value_error_when_empty_ingredients():
 def test_create_recipe_v2_should_raise_value_error_when_title_too_long():
     try:
         with pytest.raises(ValueError, match=re.compile('^title is too long$', flags=re.I)):
-            recipes.create_recipe_v2('x'*151, 12, *ingredients)
+            recipes.create_recipe_v2('x'*151, 12, 
+                                     'Pate à pizza', 'Frourne d\'Ambert', 'Comté', 'Emental', 'Mozzarella')
     except TypeError:
         pass
 
@@ -51,7 +57,8 @@ def test_create_recipe_v2_should_raise_value_error_when_title_too_long():
 def test_create_recipe_v2_should_raise_value_error_when_too_many_persons():
     try:
         with pytest.raises(ValueError, match=re.compile('^invalid persons number$', flags=re.I)):
-            recipes.create_recipe_v2('tacos à la grec', 51, *ingredients)
+            recipes.create_recipe_v2('tacos à la grec', 51, 
+                                     'Pate à pizza', 'Frourne d\'Ambert', 'Comté', 'Emental', 'Mozzarella')
     except TypeError:
         pass
 
@@ -59,6 +66,7 @@ def test_create_recipe_v2_should_raise_value_error_when_too_many_persons():
 def test_create_recipe_v2_should_raise_value_error_when_zero_persons():
     try:
         with pytest.raises(ValueError, match=re.compile('^invalid persons number$', flags=re.I)):
-            recipes.create_recipe_v2('tacos à la grec', 0, *ingredients)
+            recipes.create_recipe_v2('tacos à la grec', 0, 
+                                     'Pate à pizza', 'Frourne d\'Ambert', 'Comté', 'Emental', 'Mozzarella')
     except TypeError:
         pass
