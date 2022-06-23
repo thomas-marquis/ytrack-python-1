@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
 ```bash
 $ python test.py
-[{'title': 'avocat au thon', 'persons': 4}]
+['avocat au thon']
 ```
 
 
