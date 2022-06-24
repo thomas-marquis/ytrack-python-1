@@ -1,6 +1,6 @@
 import random
 
-from .base_spaceships import Spaceship
+from base_spaceships import Spaceship
 
 
 class Simulator:

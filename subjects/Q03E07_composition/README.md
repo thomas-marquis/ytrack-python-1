@@ -50,3 +50,7 @@ Starfleet
 2
 {'alive_battleships': 2, 'alive_fighters': 1, 'dead_battleships': 1, 'dead_fighters': 0}
 ```
+
+## Notions
+
+* [Object collections](https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python/7196587-utilisez-des-objets-dans-des-collections)
