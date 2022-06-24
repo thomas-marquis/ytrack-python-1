@@ -1,6 +1,6 @@
-# XXX
+# Simple battle simulator
 
-# Instructions
+## Instructions
 
 
 ## Usage
