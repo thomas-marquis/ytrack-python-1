@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Create a file `fleet.py` and a class `Fleet` that take 2 parameters in constructor :
+Create a file `fleet.py` in same directory as file `base_spaceships.py` and create a class `Fleet` that take 2 parameters in constructor :
 
 * the fleet name as a string. Save it in instance attribute `name`
 * a list of `Spaceships`. Save it in instance attribute `ships`
