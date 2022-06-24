@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Reuse the file `base_spaceship.py` and the class `Spaceship`.
+Reuse the file `base_spaceships.py` and the class `Spaceship`.
 
 The class should be instantiable like this:
 
@@ -20,7 +20,7 @@ The `is_alive` attribute must remain `True`.
 Here is a possible `test.py` to test your functions:
 
 ```python
-from base_spaceship import Spaceship
+from base_spaceships import Spaceship
 
 if __name__ == '__main__':
     uscss_nostromo = Spaceship(attack=100, defense=1500)

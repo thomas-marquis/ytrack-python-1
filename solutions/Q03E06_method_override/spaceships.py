@@ -1,4 +1,4 @@
-from .base_spaceships import Battleship, Fighter, Spaceship
+from base_spaceships import Battleship, Fighter, Spaceship
 
 
 class Interceptor(Fighter):

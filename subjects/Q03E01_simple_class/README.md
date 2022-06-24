@@ -6,7 +6,7 @@ First, we need some space ships.
 
 ## Instructions
 
-Create a file `base_spaceship.py` and a class `Spaceship` with 3 attributes:
+Create a file `base_spaceships.py` and a class `Spaceship` with 3 attributes:
 
 * `is_alive`, default to `True`
 * `attack`, default to `0`
@@ -18,10 +18,10 @@ Create a file `base_spaceship.py` and a class `Spaceship` with 3 attributes:
 Here is a possible `test.py` to test your functions:
 
 ```python
-from base_spaceship import Spaceship
+from base_spaceships import Spaceship
 
 if __name__ == '__main__':
-    print(Spaceship().is_alive)
+    print(Spaceship().is_alive)spaceships
     print(Spaceship().attack)
     print(Spaceship().defense)
 ```

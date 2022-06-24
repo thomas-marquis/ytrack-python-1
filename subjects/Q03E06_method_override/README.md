@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Create a file `spaceships.py` and following classes with characteristics:
+Create a file `spaceships.py` in same directory as file `base_spaceships.py` and create following classes with characteristics:
 
 * `Interceptor` inherited from `Fighter`
   * attack = 180 and defense = 1000

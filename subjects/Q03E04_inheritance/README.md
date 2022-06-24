@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Reuse the file `base_spaceship.py` and the class `Spaceship`.
+Reuse the file `base_spaceships.py` and the class `Spaceship`.
 
 Create 2 new classes in this file:
 
@@ -16,7 +16,7 @@ Both should inherit from `Spaceship` and do nothing more.
 Here is a possible `test.py` to test your functions:
 
 ```python
-from base_spaceship import Battleship, Fighter
+from base_spaceships import Battleship, Fighter
 
 if __name__ == '__main__':
     x_wing = Fighter(attack=200, defense=800)

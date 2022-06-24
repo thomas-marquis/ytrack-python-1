@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Reuse the file `base_spaceship.py` and the class `Spaceship`.
+Reuse the file `base_spaceships.py` and the class `Spaceship`.
 
 Create a new method `fire_on` in `Spaceship` class.
 
@@ -15,7 +15,7 @@ The amount of applied damages is equal to attacker `Spaceship.attack` attribute.
 Here is a possible `test.py` to test your functions:
 
 ```python
-from base_spaceship import Spaceship
+from base_spaceships import Spaceship
 
 if __name__ == '__main__':
     tie_fighter = Spaceship(50, 300)
