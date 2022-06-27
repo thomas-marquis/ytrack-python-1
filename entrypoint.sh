@@ -13,4 +13,4 @@ rm -rf ./run/tests
 cd run
 cp -rf "/app/tests/${EXERCISE}" ./tests
 
-pytest --tb=short -v
+pytest --tb=short -v -s
