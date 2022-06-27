@@ -12,6 +12,7 @@ In this exercise, we going to simulate a fight between many ships. Reuse file `b
 * for **each alive** attacker ships
 * choose randomly one **alive** defender ship
 * fight with him (use previous exercise code for that)
+* do nothing if attacker or defender ships list is empty
 
 
 ## Usage

@@ -40,4 +40,3 @@ class Simulator:
             def_ship = random.choice(defender_ships)
             if off_ship.is_alive and def_ship.is_alive:
                 self._duel_fight(off_ship, def_ship)
-                # print(f'{off_ship.defense} vs {def_ship.defense}')

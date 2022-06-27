@@ -17,8 +17,8 @@ class Fleet:
     
     def get_report(self):
         return {
-            'alive_battleships': len(self.get_battleships()),
-            'alive_fighters': len(self.get_fighters()),
+            'alive_battleships': len(self.get_alive_battleships()),
+            'alive_fighters': len(self.get_alive_fighters()),
             'dead_battleships': len([ship for ship in self.ships if isinstance(ship, Battleship) and not ship.is_alive]),
             'dead_fighters': len([ship for ship in self.ships if isinstance(ship, Fighter) and not ship.is_alive]),
         }

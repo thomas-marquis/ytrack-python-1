@@ -92,3 +92,27 @@ class TestSimulator:
         assert defenders.ships[3].defense == 0
         assert defenders.ships[4].is_alive
         assert defenders.ships[4].defense == 3700
+
+    def test_get_report(self):
+        attackers = Fleet('Empire', [Interceptor(), Interceptor(), Frigate()])
+        defenders = Fleet('Rebels', [Bomber(), Interceptor(), Destroyer()])
+        simulator = Simulator(attackers, defenders)
+        random.seed(100)
+        
+        simulator.fight()
+        report = simulator.get_report()
+        
+        assert report == {
+            'Empire': {
+                'alive_battleships': 1, 
+                'alive_fighters': 1, 
+                'dead_battleships': 0, 
+                'dead_fighters': 1,
+            }, 
+            'Rebels': {
+                'alive_battleships': 1, 
+                'alive_fighters': 1, 
+                'dead_battleships': 0, 
+                'dead_fighters': 1,
+            },
+        }
