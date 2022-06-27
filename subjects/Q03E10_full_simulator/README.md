@@ -48,6 +48,7 @@ There are 3 steps in a battle:
 
 ![step 3](battle_phase_3.png)
 
+Your `fight` method should implement those steps correctly.
 
 **Tips**
 
