@@ -1,4 +1,4 @@
-from .base_spaceships import Spaceship, Fighter, Battleship
+from base_spaceships import Spaceship, Fighter, Battleship
 
 
 class Fleet:

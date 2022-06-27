@@ -44,7 +44,7 @@ if __name__ == '__main__':
 ```bash
 $ python test.py
 True
-False
+True
 True
 True
 False
