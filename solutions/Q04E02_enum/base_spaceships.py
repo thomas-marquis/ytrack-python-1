@@ -1,5 +1,9 @@
+from requirements import Requirements
+
+
 class Spaceship:
     is_alive: bool = True
+    requirements: Requirements
     
     def __init__(self, attack: int, defense: int):
         self.attack = attack

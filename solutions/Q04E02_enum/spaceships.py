@@ -1,9 +1,10 @@
-from enum import Enum
-
 from base_spaceships import Battleship, Fighter, Spaceship
+from requirements import Requirements
 
 
 class Interceptor(Fighter):
+    requirements: Requirements = Requirements(metal=1_000, crystal=200)
+
     def __init__(self):
         super().__init__(attack=180, defense=1000)
         
@@ -17,6 +18,8 @@ class Interceptor(Fighter):
 
 
 class Bomber(Fighter):
+    requirements: Requirements = Requirements(metal=2_500, crystal=400)
+
     def __init__(self):
         super().__init__(attack=150, defense=2000)
     
@@ -30,11 +33,15 @@ class Bomber(Fighter):
     
     
 class Cruiser(Battleship):
+    requirements: Requirements = Requirements(metal=25_000, crystal=10_000)
+
     def __init__(self):
         super().__init__(attack=800, defense=3000)
         
         
 class Frigate(Battleship):
+    requirements: Requirements = Requirements(metal=10_000, crystal=10_000)
+
     def __init__(self):
         super().__init__(attack=500, defense=2500)
         
@@ -48,6 +55,8 @@ class Frigate(Battleship):
         
         
 class Destroyer(Battleship):
+    requirements: Requirements = Requirements(metal=35_000, crystal=20_000)
+    
     def __init__(self):
         super().__init__(attack=650, defense=5000)
         
