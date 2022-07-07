@@ -11,9 +11,9 @@ class SpaceYard:
         req = ship_class.requirements
         
         if req.metal * quantity > available_metal:
-            raise ResourceError(f'Not enough metal to build {quantity} {ship_class.__name__}s')
+            raise ResourceError(f'Not enough metal to build {quantity} {ship_class.__name__}')
         if req.crystal * quantity > available_crystal:
-            raise ResourceError(f'Not enough crystal to build {quantity} {ship_class.__name__}s')
+            raise ResourceError(f'Not enough crystal to build {quantity} {ship_class.__name__}')
 
         new_ships = [ship_class() for _ in range(quantity)]
         

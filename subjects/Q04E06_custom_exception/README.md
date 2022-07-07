@@ -16,7 +16,15 @@ Create a method `build_ship` that return nothing and expect 5 arguments:
 * `available_metal` as integer. User resource available stock
 * `available_crystal` as integer. User resource available stock
 
-Given a `ship_class` this method should check if there is enough resource to build ships (according to ship requirements defined in first exercise). raise a ResourceError if there is not enough resource.
+Given a `ship_class` this method should check if there is enough resource to build ships (according to ship requirements defined in first exercise). raise a ResourceError if there is not enough resource. with following error message (examples):
+
+```python
+"Not enough metal to build 12 Interceptor"
+"Not enough crystal to build 3 Cruiser"
+"Not enough metal to build 5 Destroyer"
+```
+
+You should adapt resource and ship name in error message.
 
 ## Usage
 
