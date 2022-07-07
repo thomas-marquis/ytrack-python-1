@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 from dock import SpaceDock
 from dock_repositories import SpaceDockRepository, SpaceDockFileRepository, SpaceDockInMemoryRepository
+from exceptions import ResourceError
 from ship_types import get_ship_class_by_name
 from space_yard import SpaceYard
 
@@ -14,7 +15,7 @@ app = FastAPI()
 def init_dock_repository() -> SpaceDockRepository:
     match os.getenv('DOCK_REPOSITORY', 'IN_MEMORY').lower():
         case 'file':
-            return SpaceDockFileRepository('fleet.pickle')
+            return SpaceDockFileRepository('fleets.pickle')
         case 'in_memory':
             return SpaceDockInMemoryRepository()
         case other:
@@ -47,6 +48,8 @@ def build_ships(body: BuildShipRequest):
         dock_repository.save(dock)
     except ValueError as err:
         raise HTTPException(status.HTTP_404_NOT_FOUND, str(err))
+    except ResourceError as err:
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, str(err))
 
 
 @app.get('/ship/fleet/{fleet_name}')
