@@ -1,12 +1,13 @@
-# Handle exceptions
+# Abstract classes
 
 ## Instructions
 
-Go to file `ship_types.py` and create a function `get_ship_class_by_name` that take a ship name (string) as argument.
+Go to file `dock_repositories.py` and create an abstract class `SpaceDockRepository` that declare 2 abstract methods:
 
-This function should use the `ShipType` enum to return correct Spaceship subclass according given ship name. Ex: ship name is `"interceptor"`, the function should return `Interceptor` class reference
+* `save(self, dock: SpaceDock) -> None:`
+* `load(self) -> SpaceDock:`
 
-If ship does not exists in enum, raise a `ValueError`
+Exte
 
 
 

@@ -15,7 +15,7 @@ class SpaceDockRepository(ABC):
         pass
     
     
-class SpaceDockFileRepository:
+class SpaceDockFileRepository(SpaceDockRepository):
     def __init__(self, file_name: str) -> None:
         self._file_name = file_name
 
