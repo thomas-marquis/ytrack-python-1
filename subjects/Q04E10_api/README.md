@@ -1,27 +1,20 @@
-# Handle exceptions
+# API
 
 ## Instructions
 
-Go to file `ship_types.py` and create a function `get_ship_class_by_name` that take a ship name (string) as argument.
+In this final exercise, you will learn to build a little REST API with FastAPI.
 
-This function should use the `ShipType` enum to return correct Spaceship subclass according given ship name. Ex: ship name is `"interceptor"`, the function should return `Interceptor` class reference
+FastAPI is an external python library, you need to install it:
 
-If ship does not exists in enum, raise a `ValueError`
+```bash
+$ pip install fastapi
+```
+
+FastAPI have a [great documentation](https://fastapi.tiangolo.com/tutorial/first-steps/) with many tutorials.
 
 
 
 ## Usage
-
-Here is a possible `test.py` to test your functions:
-
-```python
-from ship_types import get_ship_class_by_name
-from spaceships import Interceptor
-
-if __name__ == '__main__':
-    print(get_ship_class_by_name('interceptor') == Interceptor)
-    print(get_ship_class_by_name('intERCEptoR') == Interceptor)
-```
 
 ```bash
 $ python test.py
@@ -31,5 +24,6 @@ True
 
 ## Notion
 
-* [access to an enum item by name](https://docs.python.org/fr/3/library/enum.html#programmatic-access-to-enumeration-members-and-their-attributes)
-* [Handle exceptions](https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python/7197031-gerez-les-exceptions)
+* [FastAPI documentation](https://fastapi.tiangolo.com/)
+* [introduction to RES APIs](https://www.geeksforgeeks.org/rest-api-introduction/)
+* [Cours about REST API (part 1 only)](https://openclassrooms.com/fr/courses/6031886-debutez-avec-les-api-rest)
