@@ -8,7 +8,7 @@ class SpaceDockFileRepository:
     def __init__(self, file_name: str) -> None:
         self._file_name = file_name
 
-    def save(self, dock: SpaceDock):
+    def save(self, dock: SpaceDock) -> None:
         with open(self._file_name, 'wb') as f:
             pickle.dump(dock, f)
             
