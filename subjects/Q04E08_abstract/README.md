@@ -7,30 +7,32 @@ Go to file `dock_repositories.py` and create an abstract class `SpaceDockReposit
 * `save(self, dock: SpaceDock) -> None:`
 * `load(self) -> SpaceDock:`
 
-Exte
+Inherit the existing `SpaceDockFileRepository` from this abstract class.
 
-
+Create a new class `SpaceDockInMemoryRepository` that implement `SpaceDockRepository`. That class does noe have constructor. The both methods save and load simply respectively save space dock in an instance attribute and load it from it.
 
 ## Usage
 
 Here is a possible `test.py` to test your functions:
 
 ```python
-from ship_types import get_ship_class_by_name
-from spaceships import Interceptor
+from dock import SpaceDock
+from dock_repositories import SpaceDockInMemoryRepository, SpaceDockRepository, SpaceDockFileRepository
 
 if __name__ == '__main__':
-    print(get_ship_class_by_name('interceptor') == Interceptor)
-    print(get_ship_class_by_name('intERCEptoR') == Interceptor)
+    dock = SpaceDock()
+    dock_repo = SpaceDockInMemoryRepository()
+
+    dock_repo.save(dock)
+    print(dock_repo.load() == dock)
 ```
 
 ```bash
 $ python test.py
 True
-True
 ```
 
 ## Notion
 
-* [access to an enum item by name](https://docs.python.org/fr/3/library/enum.html#programmatic-access-to-enumeration-members-and-their-attributes)
-* [Handle exceptions](https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python/7197031-gerez-les-exceptions)
+* [abstract classes basics](https://www.geeksforgeeks.org/abstract-classes-in-python/)
+* [full ABC documentation](https://docs.python.org/3/library/abc.html)
