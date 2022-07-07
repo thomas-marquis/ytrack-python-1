@@ -4,10 +4,9 @@
 
 Go to file `ship_types.py` and create a function `get_ship_class_by_name` that take a ship name (string) as argument.
 
-This function should use the `ShipType` enum to return correct Spaceship subclass according given ship name. Ex: ship name is `"interceptor"`, the function should return `Interceptor` class reference
+This function should return correct `ShipType` enum item given a ship name. Ex: ship name is `"interceptor"`, the function should return `ShipType.INTERCEPTOR`
 
 If ship does not exists in enum, raise a `ValueError`
-
 
 
 ## Usage
@@ -15,12 +14,11 @@ If ship does not exists in enum, raise a `ValueError`
 Here is a possible `test.py` to test your functions:
 
 ```python
-from ship_types import get_ship_class_by_name
-from spaceships import Interceptor
+from ship_types import get_ship_class_by_name, ShipType
 
 if __name__ == '__main__':
-    print(get_ship_class_by_name('interceptor') == Interceptor)
-    print(get_ship_class_by_name('intERCEptoR') == Interceptor)
+    print(get_ship_class_by_name('interceptor') == ShipType.INTERCEPTOR)
+    print(get_ship_class_by_name('intERCEptoR') == ShipType.INTERCEPTOR)
 ```
 
 ```bash
