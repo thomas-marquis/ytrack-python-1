@@ -2,34 +2,52 @@
 
 ## Instructions
 
-Go to file `ship_types.py` and create a function `get_ship_class_by_name` that take a ship name (string) as argument.
+Create file `app.py` and a function `init_dock_repository`. That function read DOCK_REPOSITORY environment variable and return the correct `SpaceDockRepository` implementation accordingly.
 
-This function should use the `ShipType` enum to return correct Spaceship subclass according given ship name. Ex: ship name is `"interceptor"`, the function should return `Interceptor` class reference
+Use following mapping between DOCK_REPOSITORY env variable value and implementation to use:
 
-If ship does not exists in enum, raise a `ValueError`
+* in_memory => `SpaceDockInMemoryRepository`
+* file => `SpaceDockFileRepository` (with file "fleets.pickle")
 
+You should handle upper and lower case variable value.
 
+Use "in_memory" as default value.
+
+Raise a ValueError if invalid any other is passed to DOCK_REPOSITORY. Use following error message:
+
+```python
+"Repository <bad_value> does not exist"
+```
+
+## Tips
+
+* You cas use the `match/case` python syntax.
 
 ## Usage
 
 Here is a possible `test.py` to test your functions:
 
 ```python
-from ship_types import get_ship_class_by_name
-from spaceships import Interceptor
+import os
+from app import init_dock_repository
 
 if __name__ == '__main__':
-    print(get_ship_class_by_name('interceptor') == Interceptor)
-    print(get_ship_class_by_name('intERCEptoR') == Interceptor)
+    os.environ['DOCK_REPOSITORY'] = 'in_memory'
+    print(type(init_dock_repository()))
+
+    os.environ['DOCK_REPOSITORY'] = 'incorrect'
+    init_dock_repository()
 ```
 
 ```bash
 $ python test.py
-True
-True
+<class 'dock_repositories.SpaceDockInMemoryRepository'>
+Traceback (most recent call last):
+    ...
+ValueError: Repository incorrect does not exist
 ```
 
 ## Notion
 
-* [access to an enum item by name](https://docs.python.org/fr/3/library/enum.html#programmatic-access-to-enumeration-members-and-their-attributes)
-* [Handle exceptions](https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python/7197031-gerez-les-exceptions)
+* [match case syntax](https://learnpython.com/blog/python-match-case-statement/)
+* [os module](https://docs.python.org/fr/3/library/os.html)
