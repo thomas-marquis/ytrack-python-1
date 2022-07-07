@@ -1,6 +1,5 @@
 from enum import Enum
 
-from base_spaceships import Spaceship
 from spaceships import Interceptor, Bomber, Frigate, Cruiser, Destroyer
 
 
@@ -12,7 +11,7 @@ class ShipType(Enum):
     DESTROYER = Destroyer
 
 
-def get_ship_from_by_name(ship_name: str) -> type[Spaceship]:
+def get_ship_class_by_name(ship_name: str) -> ShipType:
     try:
         return ShipType[ship_name.upper()]
     except KeyError:

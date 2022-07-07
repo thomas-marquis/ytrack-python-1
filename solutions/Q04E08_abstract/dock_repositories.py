@@ -32,7 +32,8 @@ class SpaceDockFileRepository(SpaceDockRepository):
 
 
 class SpaceDockInMemoryRepository(SpaceDockRepository):
-    _dock: SpaceDock
+    def __init__(self) -> None:
+        self._dock = SpaceDock()
     
     def save(self, dock: SpaceDock) -> None:
         self._dock = dock

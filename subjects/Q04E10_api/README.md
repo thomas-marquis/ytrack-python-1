@@ -24,6 +24,10 @@ True
 
 ## Notion
 
-* [FastAPI documentation](https://fastapi.tiangolo.com/)
-* [introduction to RES APIs](https://www.geeksforgeeks.org/rest-api-introduction/)
-* [Cours about REST API (part 1 only)](https://openclassrooms.com/fr/courses/6031886-debutez-avec-les-api-rest)
+* FastAPI useful links:
+  * [FastAPI documentation](https://fastapi.tiangolo.com/)
+  * [Request body for POST requests](https://fastapi.tiangolo.com/tutorial/body/)
+  * [Customize response status code](https://fastapi.tiangolo.com/tutorial/response-status-code/)
+* Other resources:
+  * [introduction to RES APIs](https://www.geeksforgeeks.org/rest-api-introduction/)
+  * [Course about REST API (part 1 only)](https://openclassrooms.com/fr/courses/6031886-debutez-avec-les-api-rest)
