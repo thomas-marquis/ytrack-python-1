@@ -2,7 +2,6 @@ import os
 import pickle
 from collections import Counter
 
-import pytest
 from behave import *
 from fastapi.testclient import TestClient
 
@@ -54,6 +53,26 @@ def step_impl(context):
     context.response = response
 
 
+@then('space dock should be empty')
+def step_impl(context):
+    if os.path.exists(context.dock_file):
+        with open(context.dock_file, 'rb') as f:
+            dock = pickle.load(f)
+            
+        actual_dock_type = type(dock).__name__.lower()
+        assert actual_dock_type == 'spacedock', (f'Invalid type for SpaceDock: {actual_dock_type}. '
+                                                f'You must serialize a valid SpaceDOck in file {context.dock_file}')
+            
+        actual_fleets = {}
+        for actual_fleet in dock.fleets.values():
+            actual_ship_types: list[str] = [type(ship).__name__.lower() for ship in actual_fleet.ships]
+            ship_types_counter = Counter(actual_ship_types)
+            actual_fleets[actual_fleet.name] = dict(ship_types_counter)
+            
+        expected_fleets = {'default': {}}
+            
+        assert actual_fleets == expected_fleets, f'SpaceDock should be empty: {actual_fleets=}, {expected_fleets=}'
+
 @then('following ships should be in space dock')
 def step_impl(context):
     expected_fleets = {}
@@ -75,7 +94,7 @@ def step_impl(context):
     # }
         
     if not os.path.exists(context.dock_file):
-        pytest.fail(f'file {context.dock_file} not exists')
+        assert False, f'File {context.dock_file} does not exist'
         
     with open(context.dock_file, 'rb') as f:
         dock = pickle.load(f)
@@ -90,12 +109,7 @@ def step_impl(context):
         ship_types_counter = Counter(actual_ship_types)
         actual_fleets[actual_fleet.name] = dict(ship_types_counter)
         
-    assert actual_fleets == expected_fleets, f'Invalid SpaceDock content: {actual_fleets=}, {expected_fleets=}'
-
-
-@then('ships should NOT be created in space dock')
-def step_impl(context):
-    pass
+    assert actual_fleets == expected_fleets, f'Unexpected SpaceDock content: {actual_fleets=}, {expected_fleets=}'
 
 
 @then('return status code "{status_code}"')
@@ -114,4 +128,4 @@ def step_impl(context):
         'dead_fighters': 0,
     }
     actual_response = context.response.json()
-    assert actual_response == expected_response, f'{actual_response=}, {expected_response=}'
+    assert actual_response == expected_response, f'Unexpected fleet report: {actual_response=}, {expected_response=}'

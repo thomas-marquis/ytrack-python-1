@@ -17,7 +17,11 @@ if [ -d ./tests/features ]; then
     echo "Launching functional tests"
     cp -rf ./tests/features ./features
     rm -rf ./tests/features
-    behave -s
+    {
+        behave -s
+    } || {
+        echo "Functional tests ending with code $?"
+    }
     echo "Functional tests ending"
 fi
 
