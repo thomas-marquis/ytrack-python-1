@@ -13,4 +13,18 @@ rm -rf ./run/tests
 cd run
 cp -rf "/app/tests/${EXERCISE}" ./tests
 
+if [ -d ./tests/features ]; then
+    echo "Launching functional tests"
+    cp -rf ./tests/features ./features
+    rm -rf ./tests/features
+    {
+        behave -s --summary --stop --no-timings --expand --color --format=pretty
+    } || {
+        echo "Functional tests ending with code $?"
+    }
+    echo "Functional tests ending"
+fi
+
+echo "Launching unit tests"
 pytest --tb=short -v -s
+echo "Unit tests ending"
