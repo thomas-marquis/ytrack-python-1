@@ -10,6 +10,20 @@ from dock import SpaceDock
 from spaceships import Interceptor, Bomber, Frigate, Cruiser, Destroyer
 
 
+def get_ship_by_name(name: str):
+        match name.lower():
+            case 'interceptor':
+                return Interceptor()
+            case 'bomber':
+                return Bomber()
+            case 'cruiser':
+                return Cruiser()
+            case 'frigate':
+                return Frigate()
+            case 'destroyer':
+                return Destroyer()
+
+
 @given('ship name is "{ship_name}"')
 def step_impl(context, ship_name):
     context.ship_name = str(ship_name)
@@ -64,19 +78,6 @@ def step_impl(context):
         ship = row['ship']
         if ship:
             expected_fleets[fleet][ship.lower()] = int(row['number'])
-
-    def get_ship_by_name(name: str):
-        match name.lower():
-            case 'interceptor':
-                return Interceptor()
-            case 'bomber':
-                return Bomber()
-            case 'cruiser':
-                return Cruiser()
-            case 'frigate':
-                return Frigate()
-            case 'destroyer':
-                return Destroyer()
 
     fake_dock = SpaceDock()
     for name, ships in expected_fleets.items():
@@ -166,7 +167,7 @@ def step_impl(context):
     assert actual_fleets == expected_fleets, f'Unexpected SpaceDock content: {actual_fleets=}, {expected_fleets=}'
 
 
-@then('return status code "{status_code}"')
+@then('status code is "{status_code}"')
 def step_impl(context, status_code):
     expected_code = int(status_code)
     actual_code = context.response.status_code
