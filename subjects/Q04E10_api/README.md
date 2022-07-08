@@ -100,6 +100,14 @@ app = FastAPI()
 }
 ```
 
+* Request fields details:
+
+  * `metal_stock`: available metal in user stock
+  * `crystal_stock`: available crystal in user stock
+  * `fleet_name`: destination fleet name. The built ships will be store in this fleet
+  * `quantity`: number of ship to build
+  * `ship_name`: ship type to build
+
 * Should return status code `201` if request succeed
 * Should handle following ships:
   * `interceptor`
@@ -116,7 +124,7 @@ app = FastAPI()
 
 ## Usage
 
-In first terminal:
+In a first terminal:
 
 ```bash
 $ uvicorn app:app --reload
