@@ -18,7 +18,7 @@ if [ -d ./tests/features ]; then
     cp -rf ./tests/features ./features
     rm -rf ./tests/features
     {
-        behave -s
+        behave -s --summary --stop --no-timings --expand --color --format=pretty
     } || {
         echo "Functional tests ending with code $?"
     }
