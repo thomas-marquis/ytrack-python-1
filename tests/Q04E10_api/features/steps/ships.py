@@ -6,6 +6,8 @@ from behave import *
 from fastapi.testclient import TestClient
 
 from app import app
+from dock import SpaceDock
+from spaceships import Interceptor, Bomber, Frigate, Cruiser, Destroyer
 
 
 @given('ship name is "{ship_name}"')
@@ -18,19 +20,71 @@ def step_impl(context, quantity):
     context.quantity = int(quantity)
 
 
-@given('metal stock is "{metal}"')
-def step_impl(context, metal):
-    context.metal = int(metal)
+@given('there is enough metal')
+def step_impl(context):
+    context.metal = 10000000000
 
 
-@given('crystal stock is "{crystal}"')
-def step_impl(context, crystal):
-    context.crystal = int(crystal)
+@given('there is enough crystal')
+def step_impl(context):
+    context.crystal = 10000000000
+
+
+@given('there is NOT enough metal')
+def step_impl(context):
+    context.metal = 1
+
+
+@given('there is NOT enough crystal')
+def step_impl(context):
+    context.crystal = 1
 
 
 @given('fleet name is "{fleet_name}"')
 def step_impl(context, fleet_name):
     context.fleet_name = str(fleet_name)
+
+
+@given('space dock contains following ships')
+def step_impl(context):
+    # table:
+    # | fleet     | ship        | number |
+    # | default   |             |        |
+    # | attackers | interceptor | 100    |
+    # fleets = {
+    #     'default': {},
+    #     'attackers': {'interceptor': 100},
+    # }
+    
+    expected_fleets = {}
+    for row in context.table:
+        fleet = row['fleet']
+        if not expected_fleets.get(fleet):
+            expected_fleets[fleet] = {}
+        ship = row['ship']
+        if ship:
+            expected_fleets[fleet][ship.lower()] = int(row['number'])
+
+    def get_ship_by_name(name: str):
+        match name.lower():
+            case 'interceptor':
+                return Interceptor()
+            case 'bomber':
+                return Bomber()
+            case 'cruiser':
+                return Cruiser()
+            case 'frigate':
+                return Frigate()
+            case 'destroyer':
+                return Destroyer()
+
+    fake_dock = SpaceDock()
+    for name, ships in expected_fleets.items():
+        for ship_name, number in ships.items():
+            fake_dock[name] += [get_ship_by_name(ship_name) for _ in range(number)]
+
+    with open(context.dock_file, 'wb') as f:
+        pickle.dump(fake_dock, f)
 
 
 @when('call route /ship with POST')
@@ -46,7 +100,7 @@ def step_impl(context):
     context.response = response
 
 
-@when('call route /ship/fleet/<fleet_name> with GET')
+@when('call route /ship/fleet/[fleet_name] with GET')
 def step_impl(context):
     client = TestClient(app)
     response = client.get(f'/ship/fleet/{context.fleet_name}')
@@ -121,11 +175,12 @@ def step_impl(context, status_code):
 
 @then('return fleet report')
 def step_impl(context):
+    row = context.table[0]
     expected_response = {
-        'alive_battleships': 0,
-        'alive_fighters': 0,
-        'dead_battleships': 0,
-        'dead_fighters': 0,
+        'alive_battleships': int(row['alive_battleships']),
+        'alive_fighters': int(row['alive_fighters']),
+        'dead_battleships': int(row['dead_battleships']),
+        'dead_fighters': int(row['dead_fighters']),
     }
     actual_response = context.response.json()
     assert actual_response == expected_response, f'Unexpected fleet report: {actual_response=}, {expected_response=}'
