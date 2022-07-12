@@ -10,6 +10,9 @@ def simulator():
 
 
 class TestSimulator:
+    def test__duel_fight_should_be_static(self, simulator):
+        pass # TODO
+    
     def test__duel_fight_both_survived_1(self, simulator):
         tie_fighter = Interceptor()
         y_wing = Bomber()

@@ -23,5 +23,21 @@ class Fleet:
             'dead_fighters': len([ship for ship in self.ships if isinstance(ship, Fighter) and not ship.is_alive]),
         }
 
+    @property
+    def alive_ships(self):
+        return self.get_all_alive_ships()
+    
+    @property
+    def alive_fighters(self):
+        return self.get_alive_fighters()
+    
+    @property
+    def alive_battleships(self):
+        return self.get_alive_battleships()
+    
+    @property
+    def report(self):
+        return self.get_report()
+
     def __add__(self, other: Spaceship | list[Spaceship]):
         self.ships += [other] if isinstance(other, Spaceship) else other
