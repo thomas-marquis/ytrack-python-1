@@ -10,6 +10,9 @@ class Spaceship:
         self.defense = defense
         
     def take_damages(self, damages: int):
+        """Take damages and decrease the ship defense amount. If ship defense reach 0, ship is dead."""
+        if damages < 0:
+            raise ValueError('damages value should be a positive integer')
         self.defense -= damages
         if self.defense <= 0:
             self.defense = 0
