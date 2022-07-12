@@ -11,11 +11,11 @@ class TestSpaceship:
     def test_should_be_instance_attributes(self):
         attr_should_not_exists = getattr(Spaceship, 'attack', _UNDEFINED)
         if attr_should_not_exists is not _UNDEFINED:
-            pytest.fail('attack should be an instance attribuTe, not a class attribute')
+            pytest.fail('attack should be an instance attribute, not a class attribute')
 
         attr_should_not_exists = getattr(Spaceship, 'defense', _UNDEFINED)
         if attr_should_not_exists is not _UNDEFINED:
-            pytest.fail('defense should be an instance attribuTe, not a class attribute')
+            pytest.fail('defense should be an instance attribute, not a class attribute')
 
     def test_constructor(self):
         attack = random.randint(100, 1000)
