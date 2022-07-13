@@ -48,4 +48,3 @@ class Frigate(FighterKiller, Battleship):
 class Destroyer(BattleshipKiller, Battleship):
     def __init__(self):
         super().__init__(attack=650, defense=5000)
-        
