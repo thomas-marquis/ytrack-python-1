@@ -28,6 +28,7 @@ class Simulator:
             self._defensive_fleet.name: self._defensive_fleet.get_report(),
         }
 
+    @staticmethod
     def _duel_fight(self, attacker_ship: Spaceship, defender_ship: Spaceship) -> None:
         attacker_ship.fire_on(defender_ship)
         if defender_ship.is_alive:

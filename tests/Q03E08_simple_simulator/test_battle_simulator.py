@@ -1,3 +1,5 @@
+import types
+
 import pytest
 
 from battle_simulator import Simulator
@@ -11,7 +13,9 @@ def simulator():
 
 class TestSimulator:
     def test__duel_fight_should_be_static(self, simulator):
-        pass # TODO
+        is_static = isinstance(simulator._duel_fight, types.FunctionType)
+        if not is_static:
+            pytest.fail('method _duel_fight must be static')
     
     def test__duel_fight_both_survived_1(self, simulator):
         tie_fighter = Interceptor()
