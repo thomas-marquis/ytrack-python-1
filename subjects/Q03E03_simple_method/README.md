@@ -11,6 +11,8 @@ Create a method `take_damages` that should take an integer parameter `damage`.
 * This method should subtract the given damage value to the ship defense.
 * The minimum value for ship defense is zero
 * If ship defense fall to zero, pass `is_alive` to `False`
+* Should raise a `ValueError` if damages is negative
+* add some docstring to method
 
 
 ## Usage
@@ -37,3 +39,4 @@ False
 ## Notions
 
 * [classes and methods](https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python/7195400-ecrivez-une-classe-python#/id/r-7197158)
+* [docstring](https://www.datacamp.com/tutorial/docstrings-python)

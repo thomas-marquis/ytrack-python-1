@@ -11,6 +11,8 @@ Create 2 new classes in this file:
 
 Both should inherit from `Spaceship` and do nothing more.
 
+Add docstring to both subclasses.
+
 ## Usage
 
 Here is a possible `test.py` to test your functions:
