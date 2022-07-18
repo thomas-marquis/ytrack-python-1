@@ -1,6 +1,6 @@
 import pytest
 
-from spaceships import Interceptor, Bomber, Cruiser, Frigate, Destroyer
+from spaceships import Interceptor, Bomber, Cruiser, Frigate, Destroyer, BattleshipKiller, FighterKiller
 from base_spaceships import Battleship, Fighter
 
 
@@ -14,10 +14,38 @@ def other_battleship():
     return Battleship(500, 4000)
 
 
+class TestBattleshipKiller:
+    def test_fire_on_against_fighter(self, other_fighter):
+        killer = BattleshipKiller()
+        killer.attack = 100
+        ship = killer.fire_on(other_fighter)
+        assert ship.defense == 900, 'BattleshipKiller.fire_on should inflict standard damages to fighters'
+    
+    def test_fire_on_against_battleship(self, other_battleship):
+        killer = BattleshipKiller()
+        killer.attack = 100
+        ship = killer.fire_on(other_battleship)
+        assert ship.defense == 3800, 'BattleshipKiller.fire_on should inflict 2 times more damages to battleships'
+
+
+class TestFighterKiller:
+    def test_fire_on_against_fighter(self, other_fighter):
+        killer = FighterKiller()
+        killer.attack = 100
+        ship = killer.fire_on(other_fighter)
+        assert ship.defense == 800, 'FighterKiller.fire_on should inflict 2 times more damages to fighters'
+    
+    def test_fire_on_against_battleship(self, other_battleship):
+        killer = FighterKiller()
+        killer.attack = 100
+        ship = killer.fire_on(other_battleship)
+        assert ship.defense == 3900, 'FighterKiller.fire_on should inflict standard damages to battleships'
+    
+
 class TestInterceptor:
     def test_should_inherited(self):
-        is_inherited = issubclass(Interceptor, Fighter)
-        assert is_inherited, 'Interceptor class should be inherited from Fighter class'
+        is_inherited = issubclass(Interceptor, Fighter) and issubclass(Interceptor, FighterKiller)
+        assert is_inherited, 'Interceptor class should be inherited from Fighter class and some other one...'
         
     def test_should_have_correct_stats(self):
         ship = Interceptor()
@@ -38,8 +66,8 @@ class TestInterceptor:
 
 class TestBomber:
     def test_should_inherited(self):
-        is_inherited = issubclass(Bomber, Fighter)
-        assert is_inherited, 'Bomber class should be inherited from Fighter class'
+        is_inherited = issubclass(Bomber, Fighter) and issubclass(Bomber, BattleshipKiller)
+        assert is_inherited, 'Bomber class should be inherited from Fighter class and some other one...'
         
     def test_should_have_correct_stats(self):
         ship = Bomber()
@@ -82,8 +110,8 @@ class TestCruiser:
 
 class TestFrigate:
     def test_should_inherited(self):
-        is_inherited = issubclass(Frigate, Battleship)
-        assert is_inherited, 'Frigate class should be inherited from Battleship class'
+        is_inherited = issubclass(Frigate, Battleship) and issubclass(Frigate, FighterKiller)
+        assert is_inherited, 'Frigate class should be inherited from Battleship class and some other one...'
         
     def test_should_have_correct_stats(self):
         ship = Frigate()
@@ -104,8 +132,8 @@ class TestFrigate:
 
 class TestDestroyer:
     def test_should_inherited(self):
-        is_inherited = issubclass(Destroyer, Battleship)
-        assert is_inherited, 'Destroyer class should be inherited from Battleship class'
+        is_inherited = issubclass(Destroyer, Battleship) and issubclass(Destroyer, BattleshipKiller)
+        assert is_inherited, 'Destroyer class should be inherited from Battleship class and some other one...'
         
     def test_should_have_correct_stats(self):
         ship = Destroyer()

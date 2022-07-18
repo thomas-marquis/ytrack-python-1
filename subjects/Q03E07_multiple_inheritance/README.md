@@ -1,31 +1,13 @@
-# Method override
+# Multiple inheritance
 
 ## Instructions
 
-Create a file `spaceships.py` in same directory as file `base_spaceships.py` and create following classes with characteristics:
+Reuse the file `spaceships.py`. Create 2 classes:
 
-* `Interceptor` inherited from `Fighter`
-  * attack = 180 and defense = 1000
-  * double attack against all fighters
+* `BattleshipKiller` that implement method fire_one witch inflict 2 times damages to battleships
+* `FighterKiller` that implement method fire_one witch inflict 2 times damages to fighters
 
-* `Bomber` inherited from `Fighter`
-  * attack = 150 and defense = 2000
-  * double attack against all battleships
-
-* `Cruiser` inherited from `Battleship`
-  * attack = 800 and defense = 3000
-
-* `Frigate` inherited from `Battleship`
-  * attack = 500 and defense = 2500
-  * double attack against all fighters
-
-* `Destroyer` inherited from `Battleship`
-  * attack = 650 and defense = 5000
-  * double attack against all battleships
-
-All classes must be buildable without parameter (ex: `Cruiser()` instead of `Cruiser(100, 3000)`).
-
-To do that, you should override `__init__` and `fire_on` methods.
+Then, remove `fire_on` method from previous classes (Interceptor, Cruiser...) and inherits from those 2 classes to reproduce the same behavior (Interceptor x2 against fighter, Bomber x2 against battleships...).
 
 
 ## Usage
@@ -63,5 +45,4 @@ $ python test.py
 
 ## Notions
 
-* [Overriding methods](https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python/7196334-surchargez-les-methodes-en-python)
-* [`isinstance` built-in function](https://www.w3schools.com/python/ref_func_isinstance.asp)
+* [Multiple inheritance](https://openclassrooms.com/fr/courses/7150616-apprenez-la-programmation-orientee-objet-avec-python/7196419-utilisez-les-hierarchies-d-heritage-et-l-heritage-multiple#/id/r-7196405)
